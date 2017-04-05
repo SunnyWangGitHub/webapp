@@ -11,11 +11,15 @@
 		<option value="chapters">Chapters</option>
 	</select>
 
-	<form id="from1" action="upload/novel" method="post" enctype="multipart/form-data">
-		<input type="text" name="subject">
-		<input type="text" name="category">
-		<input type="text" name="summary">
-		<input type="file" name="poster">
+	<form id="from1" action="/upload/novel" method="post" enctype="multipart/form-data">
+		<label for="subject">小说名:</label>
+		<input type="text" name="subject" id="subject">
+		<label for="category">小说类别:</label>
+		<input type="text" name="category" id="category">
+		<label for="summary">小说介绍:</label>
+		<input type="text" name="summary" id="summary">
+		<label for="poster">小说海报地址:</label>
+		<input type="text" name="poster" id="poster">
 		<input type="submit" value="提交">
 	</form>
 	<form id="from2" action="/upload/chapter" method="post" enctype="multipart/form-data" style="display: none">
