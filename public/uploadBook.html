@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>postfiletest</title>
+</head>
+<body>
+	<h1>上传文件测试</h1>
+	<select id="select">
+		<option value="novels" selected="selected">Novels</option>
+		<option value="chapters">Chapters</option>
+	</select>
+
+	<form id="from1" action="upload/novel" method="post" enctype="multipart/form-data">
+		<input type="text" name="subject">
+		<input type="text" name="category">
+		<input type="text" name="summary">
+		<input type="file" name="poster">
+		<input type="submit" value="提交">
+	</form>
+	<form id="from2" action="/upload/chapter" method="post" enctype="multipart/form-data" style="display: none">
+		<select name="book_sds">
+			<option value="asdasjbasd" selected="selected">a小说</option>
+			<option value="asdasdj123">b小说</option>		
+		</select>
+		<input type="text" name="ObjectId">
+		<input type="text" name="Name">
+		<input type="submit" value="提交">
+	</form>
+	<script type="text/javascript">
+		(function(){
+			document.getElementById("select").onchange=function(){
+				if(document.getElementById("select").value=="novels"){
+					document.getElementById("from2").style.display="none";
+					document.getElementById("from1").style.display="block";
+				}
+
+
+				else{
+					document.getElementById("from1").style.display="none";
+					document.getElementById("from2").style.display="block";
+				}
+
+			}
+		})()
+	</script>
+
+</body>
+</html>
