@@ -2,7 +2,7 @@
 * @Author: SunnyWangGitHub
 * @Date:   2017-03-30 21:27:41
 * @Last Modified by:   SunnyWangGitHub
-* @Last Modified time: 2017-03-30 23:14:31
+* @Last Modified time: 2017-04-05 19:51:07
 */
 
 'use strict';
@@ -54,7 +54,7 @@ app.get("/watch",function(req,res){
 });
 app.get("/list",function(req,res){
 	Book.fetch(function(err,books){
-		res.render("watch.ejs",{books:books});
+		res.render("watch1.ejs",{books:books});
 
 	});
 });
@@ -76,6 +76,10 @@ app.post("/book/upload",upload.single('poster'),function(req,res){
 	})
 
 });
+
+
+
+
 
 
 

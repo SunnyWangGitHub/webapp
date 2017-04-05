@@ -8,6 +8,7 @@ var Books=new mongoose.Schema({
 	poster:String,
 	chapter:[{chapter_id:Number,id:ObjectId}]
 });
+
 Books.statics={
 	fetch:function(cb){
 		return this
