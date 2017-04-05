@@ -1,6 +1,9 @@
 var upload=require("multer")()
 var Novel=require("../App/model/NovelModel.js")
 module.exports=function(app){
+	app.get("/",function(req,res){
+		res.render("index.ejs",{})
+	})
 	app.post("/upload/novel",upload.array(),function(req,res){
 		var novel=new Novel({
 			subject:req.body.subject,

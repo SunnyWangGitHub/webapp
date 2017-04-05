@@ -1,0 +1,12 @@
+/      首页
+/search?keyword    搜索页
+/class?id        栏目也
+/detail/:id    详情页
+/watch/:id    观看页
+/upload  上传
+
+
+/chapter?novel_id=''&chapter_id=  
+/upload/novel  接受数据
+/upload/chapter 接受数据
+/getCanEditNovels  可以编辑的小说
