@@ -1,8 +1,5 @@
-var mongoose=require("mongoose");
-var Schema=mongoose.Schema
-var ObjectId=Schema.Types.ObjectId;
-var Chapter=new mongoose.Schema({
-	title:String,
+var mongoose =require("mongoose")
+var ChapterSchema=new mongoose.Schema({
 	content:String,
 	meta:{
 		createAt:{
@@ -13,7 +10,30 @@ var Chapter=new mongoose.Schema({
 			type:Date,
 			default:Date.now()
 		}
-	};
-});
- var chapter= mongoose.model('Chapter',Chapter);
-module.exports=chapter;
+	}
+})
+ChapterSchema.pre('save',function(next){
+	if(this.isNew){
+		this.meta.createAt=this.meta.updateAt=Date.now()
+	}
+	else{
+		this.meta.updateAt=Date.now()
+	}
+	next()
+})
+
+ChapterSchema.statics={
+	fetch:function(cb){
+		return this
+		.find({})
+		.sort('meta.updateAt')
+		.exec(cb)
+	},
+	findById:function(id,cb){
+		return this
+		.findOne({_id:id})
+		.exec(cb)
+	}
+}
+var Chapter=mongoose.model('Chapter',ChapterSchema)
+module.exports=Chapter
