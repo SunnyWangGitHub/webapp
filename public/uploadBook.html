@@ -12,23 +12,19 @@
 	</select>
 
 	<form id="from1" action="/upload/novel" method="post" enctype="multipart/form-data">
-		<label for="subject">小说名:</label>
-		<input type="text" name="subject" id="subject">
-		<label for="category">小说类别:</label>
-		<input type="text" name="category" id="category">
-		<label for="summary">小说介绍:</label>
-		<input type="text" name="summary" id="summary">
-		<label for="poster">小说海报地址:</label>
-		<input type="text" name="poster" id="poster">
+		<input type="text" name="subject">subject
+		<input type="text" name="category">category
+		<input type="text" name="summary">summary
+		<input type="text" name="poster">poster
 		<input type="submit" value="提交">
 	</form>
 	<form id="from2" action="/upload/chapter" method="post" enctype="multipart/form-data" style="display: none">
 		<select name="book_sds">
-			<option value="asdasjbasd" selected="selected">a小说</option>
-			<option value="asdasdj123">b小说</option>		
+			<option value="58e4fd618b9f0f7d4088d321" selected="selected">ggggggg</option>
+			<option value="58e4fd248b9f0f7d4088d320">hhhh</option>		
 		</select>
-		<input type="text" name="ObjectId">
-		<input type="text" name="Name">
+		<input type="text" name="chapter_Id">chapter_Id
+		<input type="text" name="content">content
 		<input type="submit" value="提交">
 	</form>
 	<script type="text/javascript">
@@ -47,6 +43,22 @@
 
 			}
 		})()
+		var xmlhttp=new XMLHttpRequest();
+		xmlhttp.open('get','/getCanEditNovels');
+		xmlhttp.onload=function(){
+			var select=document.getElementById("from2").getElementsByTagName("select")[0];
+			var arr=JSON.parse(xmlhttp.responseText);
+			for (var i=0;i<arr.length;i++){
+				var newElement=document.createElement('option');
+				for(var key in arr[i]){
+					newElement.Value=key;
+					newElement.innerHTML=arr[i][key];
+				}
+				select.appendChild(newElement);
+			}
+
+		}
+		xmlhttp.send();
 	</script>
 
 </body>
