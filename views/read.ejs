@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= chapter.chapter_name%></title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		<h2><%=chapter.chapter_name || ""%></h2>
+			<div>
+				<%-chapter.chapter_content%>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

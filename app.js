@@ -5,9 +5,9 @@ var multer=require("multer");
 var upload=multer({dest:'uploads/'});
 var Book=require('./App/model/NovelModel.js');
 var mongoose=require('mongoose');
-var port=process.env.PORT || 3000
+var port=process.env.PORT || 80
 mongoose.Promise=Promise
-var dburl="mongodb://localhost/test"
+var dburl="mongodb://123.206.183.239/ibooktest"
 mongoose.connect(dburl);
 
 app.use("/static",express.static("public",{
